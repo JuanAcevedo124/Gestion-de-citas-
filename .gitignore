@@ -1,0 +1,9 @@
+out/
+*.class
+.idea/
+.vscode/
+*.iml
+.DS_Thumbs
+Thumbs.db
+.env
+*.log
