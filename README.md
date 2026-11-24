@@ -1,6 +1,34 @@
-# MediSalud - Sistema de Gestión de Citas Médicas
+# MediSalud: sistema de gestión de citas médicas
 
-Proyecto final del curso de Java con la funcionalidad adicional de **Cancelación de citas con motivo**.
+Aplicación de consola en Java para administrar pacientes, médicos, citas, historias clínicas y facturación, con MySQL en Docker. Proyecto final del curso de Java.
+
+## Funcionalidades
+
+- Registro de pacientes y médicos.
+- Agendamiento de citas con control de estados.
+- Cancelación de citas con motivo.
+- Consulta de historia clínica.
+- Facturación con recargo nocturno o descuento para afiliados.
+- Reportes de citas, facturación y cancelaciones por médico, y de pacientes por edad.
+
+## Tecnologías
+
+Java, MySQL, JDBC, Docker Compose, Stream API y concurrencia.
+
+## Arquitectura y patrones
+
+| Patrón | Implementación |
+|---|---|
+| MVC | Paquetes `entity`, `vista` y `controlador` |
+| Inversión de dependencias | Interfaces de repositorio |
+| Builder | `ConstructorHistoriaClinica` |
+| Singleton | `GestorClinica` |
+| Observer | `ObservadorCita`, `ObservadorCitaNotificacion` |
+| State | Transiciones validadas en `EstadoCita` |
+| Strategy | `EstrategiaCosto` |
+| Decorator | `FacturaConRecargoNocturno`, `FacturaConDescuentoAfiliado` |
+| Facade | `FachadaAgendamiento` |
+| Concurrencia | `HiloNotificaciones` y `AtomicLong` en `ContadorCodigos` |
 
 ## Estructura del proyecto
 
@@ -69,27 +97,9 @@ javac -d out $(Get-ChildItem -Recurse -Filter *.java src/main/java).FullName
 java -cp "out;lib/mysql-connector-j-8.3.0.jar" com.medisalud.Principal
 ```
 
-## Funcionalidades
+Las credenciales `root` / `root` son solo para el contenedor local de desarrollo.
 
-1. Registrar paciente (con Builder para historia clínica opcional)
-2. Registrar médico
-3. Agendar cita (Facade, State para transiciones, Observer para notificaciones)
-4. Consultar historia clínica
-5. Facturar consulta (Strategy para costo, Decorator para recargo/descuento)
-6. Generar reporte (citas por médico, total facturado, cancelaciones por médico, pacientes por edad con Stream API)
-7. **Cancelar cita con motivo** (nuevo)
-8. Salir
+## Autor
 
-## Patrones aplicados
-
-- MVC (Modelo-Vista-Controlador)
-- Inversión de dependencias (interfaces de repositorio)
-- Builder (ConstructorHistoriaClinica)
-- Singleton (GestorClinica)
-- Observer (ObservadorCita / ObservadorCitaNotificacion)
-- State (EstadoCita.puedeTransicionarA)
-- Strategy (EstrategiaCosto)
-- Decorator (FacturaConRecargoNocturno, FacturaConDescuentoAfiliado)
-- Facade (FachadaAgendamiento)
-- Concurrencia (HiloNotificaciones, AtomicLong en ContadorCodigos)
-- Stream API (listarMayoresDeEdad, totalFacturadoPorMedico, generarReporteCancelacionesPorMedico)
+Juan José Acevedo Morales, desarrollador de software junior.
+[Portafolio](https://juanacevedo124.github.io/Portafolio/) | [GitHub](https://github.com/JuanAcevedo124) | [LinkedIn](https://www.linkedin.com/in/juan-acevedo-b24759450/)
