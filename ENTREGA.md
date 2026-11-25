@@ -33,18 +33,18 @@ El método `cancelarCita(String codigo)` anterior fue **eliminado** y reemplazad
 
 | Caso | Descripción | Resultado |
 |------|-------------|-----------|
-| 1 | T01, motivo "Paciente viaja" → CANCELADA con motivo, notificación en segundo plano | ✅ |
-| 2 | T02, motivo "Medico en congreso" → CANCELADA con motivo | ✅ |
-| 3 | T03 (ATENDIDA), motivo "Error" → TransicionInvalidaException, no cambia | ✅ |
-| 4 | T01 otra vez (ya CANCELADA), motivo "Otro" → TransicionInvalidaException, no sobrescribe | ✅ |
-| 5 | TPASADA (fecha ayer), motivo "Tarde" → CancelacionTardiaException con código y fecha | ✅ |
-| 6 | ZZZ (inexistente), motivo "X" → CitaNoEncontradaException, menú sigue | ✅ |
-| 7 | T05, motivo vacío → IllegalArgumentException "motivo obligatorio", sigue PENDIENTE | ✅ |
-| 8 | T05, motivo 201 caracteres → IllegalArgumentException "máximo 200", sigue PENDIENTE | ✅ |
-| 9 | Cerrar (opción 8), reabrir, reporte M009 → T01 y T02 siguen CANCELADA con motivos (persistió) | ✅ |
-| 10 | Reporte M010 → C004 muestra "Sin motivo registrado", sin NullPointerException | ✅ |
-| 11 | Opción 6 → sección cancelaciones por médico, conteo correcto ordenado desc | ✅ |
-| 12 | Opción 8 → hilo se detiene ordenadamente, programa termina | ✅ |
+| 1 | T01, motivo "Paciente viaja" → CANCELADA con motivo, notificación en segundo plano | Correcto |
+| 2 | T02, motivo "Medico en congreso" → CANCELADA con motivo | Correcto |
+| 3 | T03 (ATENDIDA), motivo "Error" → TransicionInvalidaException, no cambia | Correcto |
+| 4 | T01 otra vez (ya CANCELADA), motivo "Otro" → TransicionInvalidaException, no sobrescribe | Correcto |
+| 5 | TPASADA (fecha ayer), motivo "Tarde" → CancelacionTardiaException con código y fecha | Correcto |
+| 6 | ZZZ (inexistente), motivo "X" → CitaNoEncontradaException, menú sigue | Correcto |
+| 7 | T05, motivo vacío → IllegalArgumentException "motivo obligatorio", sigue PENDIENTE | Correcto |
+| 8 | T05, motivo 201 caracteres → IllegalArgumentException "máximo 200", sigue PENDIENTE | Correcto |
+| 9 | Cerrar (opción 8), reabrir, reporte M009 → T01 y T02 siguen CANCELADA con motivos (persistió) | Correcto |
+| 10 | Reporte M010 → C004 muestra "Sin motivo registrado", sin NullPointerException | Correcto |
+| 11 | Opción 6 → sección cancelaciones por médico, conteo correcto ordenado desc | Correcto |
+| 12 | Opción 8 → hilo se detiene ordenadamente, programa termina | Correcto |
 
 ## Riesgo o mejora
 
